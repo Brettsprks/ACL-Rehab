@@ -1,58 +1,83 @@
-ACL Recovery Analysis: Exploring the Relationship Between Kinesiophobia and Athletic Movement Index (AMI)
-Project Overview
+# ACL Recovery Analysis: Relationship Between TSK-11 and AMI Performance Testing
 
-Anterior Cruciate Ligament (ACL) injuries are among the most common injuries in athletics and often require extensive rehabilitation before an athlete can safely return to sport. While physical recovery is heavily monitored, psychological factors such as kinesiophobia (fear of movement/reinjury) can significantly influence rehabilitation outcomes.
+## Project Overview
 
-This project investigates whether TSK-11 (Tampa Scale of Kinesiophobia) scores are associated with AMI (Athletic Movement Index) performance scores during rehabilitation.
+ACL injuries are becoming more and more common and are one of the most challenging injuries athletes face. While physical recovery is heavily monitored throughout rehabilitation, psychological factors such as fear of movement and reinjury can significantly influence recovery outcomes.
 
-Using longitudinal rehabilitation data collected between 2023–2025, I cleaned, transformed, analyzed, and visualized athlete recovery trajectories to examine:
+This project investigates the relationship between:
 
-How fear of movement changes over time
-Whether lower TSK-11 scores correspond to higher AMI performance
-Recovery trends across individual athletes
-The predictive power of TSK-11 for estimating AMI outcomes
+- **TSK-11 (Tampa Scale of Kinesiophobia)** scores
+- **AMI (Athletic Movement Index)** performance scores
 
-The dataset contains repeated measurements from athletes recovering from ACL injuries and other orthopedic conditions, with AMI scores and TSK-11 assessments collected across multiple rehabilitation visits.
+using rehabilitation data collected from patients at Davis Physical Therapy and Sports Rehab between 2023 and 2025.
 
-Research Question
+The goal is to determine whether psychological readiness is associated with physical performance during recovery and return-to-sport progression.
 
-Can psychological readiness (TSK-11 score) explain variation in physical performance (AMI score) among athletes undergoing rehabilitation?
+---
 
-Hypothesis
+## Research Question
 
-Higher levels of kinesiophobia will be associated with lower AMI performance scores.
+**Can fear of movement (TSK-11) explain variation in athletic performance (AMI) during rehabilitation?**
 
-Dataset
-Source
+### Hypothesis
 
-Data were provided by Athletes for Athletes (A4A) rehabilitation program records.
+Athletes with lower TSK-11 scores (less fear of movement) will demonstrate higher AMI performance scores.
 
-Variables
-Variable	Description
-Injury	Injury type (ACL, knee, ankle, hip, etc.)
-Date of AMI	Assessment date
-Level	Rehabilitation progression stage
-Score %	Athletic Movement Index performance score
-TSK 11	Tampa Scale of Kinesiophobia score
+---
 
-Example entries include repeated AMI and TSK-11 measurements for athletes across multiple rehabilitation stages.
+## Dataset
 
-Years Included
-2023 rehabilitation records
-2024 rehabilitation records
-2025 rehabilitation records
-Project Structure
+### Source
+
+Davis Physical Therapy and Sports Rehab rehabilitation tracking records.
+
+These tests are done for various injuries such as hips, shoulders and knees. But for this, we are just looking into results with ACL patients. 
+
+### Variables
+
+| Variable | Description |
+|-----------|-------------|
+| Injury | Injury classification (ACL only) |
+| Date of AMI | Date of assessment |
+| Level | Rehabilitation progression level |
+| Score % | Athletic Movement Index (AMI) score |
+| TSK 11 | Tampa Scale of Kinesiophobia score |
+
+### Years Included
+
+- 2023
+- 2024
+- 2025
+
+### Data Characteristics
+
+- Longitudinal athlete tracking
+- Repeated measurements per athlete
+- Multiple injury classifications
+- Psychological and physical performance metrics
+- Real-world rehabilitation data
+
+---
+
+## Project Objectives
+
+1. Clean and organize multi-year rehabilitation data.
+2. Investigate trends in AMI and TSK-11 scores.
+3. Visualize athlete recovery trajectories.
+4. Examine the relationship between psychological readiness and performance.
+5. Build predictive models using TSK-11 scores.
+6. Demonstrate practical data science skills using healthcare and sports analytics data.
+
+---
+
+## Repository Structure
+
+```text
 A4A/
 │
 ├── data/
 │   ├── raw/
-│   │   ├── DAVIS_PTSR_AMI_Tracking_2023.pdf
-│   │   ├── DAVIS_PTSR_AMI_Tracking_2024.pdf
-│   │   └── DAVIS_PTSR_AMI_Tracking_2025.pdf
-│   │
 │   └── processed/
-│       ├── combined_acl_dataset.csv
-│       └── cleaned_acl_dataset.csv
 │
 ├── notebooks/
 │   ├── 01_data_extraction.ipynb
@@ -61,120 +86,168 @@ A4A/
 │   ├── 04_modeling.ipynb
 │   └── 05_final_report.ipynb
 │
-├── visualizations/
-│   ├── correlation_scatter.png
-│   ├── patient_progression.png
-│   ├── tsk_distribution.png
-│   └── regression_results.png
+├── figures/
 │
 ├── README.md
 ├── requirements.txt
 ├── LICENSE
 └── .gitignore
-Methodology
-1. Data Extraction
-Parsed rehabilitation tracking PDFs
-Extracted AMI scores and TSK-11 values
-Consolidated records across years
-2. Data Cleaning
-Removed incomplete observations
-Standardized injury classifications
-Converted dates to datetime format
-Filtered ACL-specific observations
-Handled missing TSK-11 values
-3. Exploratory Data Analysis
+```
+
+---
+
+## Data Science Workflow
+
+### 1. Data Extraction
+
+- Extracted rehabilitation records from PDF documents
+- Consolidated data from multiple years
+- Standardized column names and formats
+
+### 2. Data Cleaning
+
+- Removed incomplete observations
+- Standardized injury categories
+- Converted dates to datetime format
+- Handled missing values
+- Created athlete identifiers
+
+### 3. Exploratory Data Analysis (EDA)
 
 Investigated:
 
-AMI score distribution
-TSK-11 score distribution
-Individual recovery trajectories
-Year-to-year trends
-Injury-specific outcomes
-4. Statistical Analysis
-Correlation Analysis
+- AMI score distributions
+- TSK-11 score distributions
+- Injury frequencies
+- Recovery progression trends
+- Athlete-specific trajectories
 
-Measured strength and direction of relationship between:
+### 4. Statistical Analysis
 
-TSK-11 ↔ AMI Score
-Linear Regression
+#### Correlation Analysis
+
+Measured the strength and direction of the relationship between:
+
+```text
+TSK-11 Score ↔ AMI Score
+```
+
+#### Linear Regression
 
 Model:
 
+```text
 AMI Score = β₀ + β₁(TSK-11)
+```
 
-Used to estimate how much variability in AMI scores can be explained by fear of movement.
+Used to evaluate whether fear of movement predicts physical performance.
 
-5. Longitudinal Analysis
+### 5. Longitudinal Analysis
 
-Tracked athletes with multiple assessments to visualize:
+Tracked individual athletes across multiple rehabilitation visits to visualize:
 
-Recovery progression
-Changes in kinesiophobia
-Physical performance improvement
-Technologies Used
-Python
-Pandas
-NumPy
-Matplotlib
-Seaborn (if used)
-Scikit-Learn
-Jupyter Notebook
-Data Science Skills Demonstrated
-Data extraction
-Data cleaning
-Feature engineering
-Exploratory Data Analysis
-Statistical analysis
-Linear regression
-Data visualization
-Longitudinal data analysis
-Research communication
-Key Findings
-Relationship Between Fear and Performance
-Lower TSK-11 scores generally corresponded with improved AMI performance.
-Psychological readiness appears to play a role in rehabilitation outcomes.
-Longitudinal Recovery Trends
-Most athletes demonstrated improving AMI scores over time.
-Recovery trajectories varied considerably across individuals.
-Predictive Modeling
-Linear regression was used to quantify the relationship between psychological readiness and physical performance.
-Model results provide insight into the proportion of AMI variability explained by TSK-11 scores.
+- Changes in AMI performance
+- Changes in TSK-11 scores
+- Overall recovery progression
 
-(Update this section with your actual R², coefficient, and correlation values.)
+---
 
-Example Visualization
-AMI vs TSK-11
+## Technologies Used
 
-Scatter plot with fitted regression line showing the relationship between fear of movement and athletic performance.
+### Programming
 
-Individual Athlete Recovery
+- Python
 
-Time-series visualization displaying AMI progression across rehabilitation visits.
+### Libraries
 
-Future Work
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-Learn
+- Jupyter Notebook
 
-Potential extensions include:
+### Skills Demonstrated
 
-Multiple regression models incorporating injury type
-Mixed-effects models for repeated measurements
-Classification of return-to-sport readiness
-Time-to-recovery prediction
-Machine learning approaches (Random Forest, XGBoost)
-Results Summary
-Metric	Value
-Observations	XXX
-ACL Athletes	XXX
-Correlation	XXX
-R²	XXX
-Mean AMI Score	XXX
-Mean TSK-11 Score	XXX
-Author
+- Data Extraction
+- Data Cleaning
+- Data Wrangling
+- Exploratory Data Analysis
+- Statistical Analysis
+- Linear Regression
+- Data Visualization
+- Longitudinal Analysis
+- Research Communication
 
-Brett Sparks
+---
 
-Data Science Student
+## Key Results
+
+### Correlation Analysis
+
+A correlation analysis was performed to quantify the relationship between TSK-11 and AMI scores.
+
+**Correlation Coefficient:** 0.520431
+
+### Regression Analysis
+
+A linear regression model was developed using TSK-11 scores as a predictor of AMI performance.
+
+**R²:** 0.036
+
+### Observations
+
+- Athletes generally improved AMI scores over time.
+- Recovery patterns varied substantially between individuals.
+- Psychological readiness appears to contribute to rehabilitation outcomes.
+
+---
+
+## Example Visualizations
+
+### TSK-11 vs AMI Scatter Plot
+
+Visualizes the relationship between fear of movement and athletic performance.
+
+### Athlete Recovery Trajectories
+
+Tracks individual AMI progression across rehabilitation visits.
+
+### Distribution Analysis
+
+Displays score distributions across the rehabilitation population.
+
+---
+
+## Future Improvements
+
+Potential future work includes:
+
+- Multiple linear regression
+- Mixed-effects longitudinal models
+- Return-to-sport classification models
+- Random Forest and XGBoost prediction models
+- Injury-specific subgroup analysis
+- Time-to-recovery prediction
+
+---
+
+## Project Impact
+
+This project demonstrates the application of data science techniques to sports medicine and rehabilitation analytics. It combines psychological and physical performance metrics to explore factors influencing athlete recovery while showcasing practical skills in data cleaning, statistical analysis, visualization, and predictive modeling.
+
+---
+
+## Author
+
+### Brett Sparks
+
+Data Science Student  
 University of South Carolina
 
-LinkedIn: Add Link
-GitHub: Add Link
+**GitHub:** https://github.com/Brettsprks
+
+---
+
+## License
+
+This project is licensed under the MIT License.
