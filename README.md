@@ -186,7 +186,7 @@ Tracked individual athletes across multiple rehabilitation visits to visualize:
 
 A correlation analysis was performed to quantify the relationship between TSK-11 and AMI scores.
 
-**Correlation Coefficient:** 0.520431
+**Correlation Coefficient:** 0.190081
 
 ### Regression Analysis
 
