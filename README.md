@@ -205,15 +205,16 @@ A linear regression model was developed using TSK-11 scores as a predictor of AM
 ## Example Visualizations
 
 ### TSK-11 vs AMI Scatter Plot
-
+figures/ami_vs_tsk_scatter.png
 Visualizes the relationship between fear of movement and athletic performance.
 
 ### Athlete Recovery Trajectories
-
+figures/longitudinal_patient.png
 Tracks individual AMI progression across rehabilitation visits.
 
 ### Distribution Analysis
-
+figures/ami_distribution.png
+figures/tsk_distribution.png
 Displays score distributions across the rehabilitation population.
 
 ---
