@@ -187,12 +187,13 @@ Tracked individual athletes across multiple rehabilitation visits to visualize:
 A correlation analysis was performed to quantify the relationship between TSK-11 and AMI scores.
 
 **Correlation Coefficient:** 0.190081
-
+This shows a weak positive relationship was observed between TSK-11 and AMI scores.
 ### Regression Analysis
 
 A linear regression model was developed using TSK-11 scores as a predictor of AMI performance.
 
 **R²:** 0.036
+The linear regression model explains that approximately 3.6% of the variance in AMI performance, this suggests that fear of movement alone is not a strong predictor of recover and performance. 
 
 ### Observations
 
